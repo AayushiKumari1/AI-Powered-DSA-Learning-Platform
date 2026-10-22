@@ -1,0 +1,13 @@
+Flask
+Flask-SQLAlchemy
+joblib
+google-genai
+gunicorn
+python-dotenv
+requests
+Flask-Migrate
+flask_cors
+flask_login
+flask_mail
+Flask-SocketIO
+scikit-learn

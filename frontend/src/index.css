@@ -1,0 +1,86 @@
+@import "tailwindcss";
+@import "@fontsource/inter/400.css";
+@import "@fontsource/inter/500.css";
+@import "@fontsource/inter/600.css";
+@import "@fontsource/inter/700.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+/* Design tokens — identical to DSA Study Buddy */
+:root {
+  color-scheme: dark;
+  --radius: .5rem;
+  --background: oklch(16% .014 260); --foreground: oklch(93% .012 250);
+  --card: oklch(20% .015 260); --card-foreground: oklch(93% .012 250);
+  --popover: oklch(20% .015 260); --popover-foreground: oklch(93% .012 250);
+  --primary: oklch(72% .16 245); --primary-foreground: oklch(14% .02 260);
+  --secondary: oklch(25% .015 260); --secondary-foreground: oklch(93% .012 250);
+  --muted: oklch(24% .015 260); --muted-foreground: oklch(65% .02 255);
+  --accent: oklch(30% .04 245); --accent-foreground: oklch(95% .012 250);
+  --destructive: oklch(65% .22 25); --destructive-foreground: oklch(98% .003 247);
+  --border: oklch(28% .015 260); --input: oklch(24% .015 260); --ring: oklch(72% .16 245);
+  --easy: oklch(74% .17 145); --medium: oklch(78% .15 75); --hard: oklch(68% .22 18);
+  --accent-glow: oklch(72% .16 245 / .35);
+  --chart-1: oklch(72% .16 245); --chart-2: oklch(74% .17 145); --chart-3: oklch(78% .15 75);
+  --chart-4: oklch(68% .22 18); --chart-5: oklch(70% .18 295);
+  --sidebar: oklch(18% .014 260); --sidebar-foreground: oklch(93% .012 250);
+  --sidebar-accent: oklch(25% .015 260); --sidebar-border: oklch(28% .015 260);
+}
+
+@theme inline {
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --color-background: var(--background); --color-foreground: var(--foreground);
+  --color-card: var(--card); --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover); --color-primary: var(--primary); --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary); --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted); --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent); --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive); --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border); --color-input: var(--input); --color-ring: var(--ring);
+  --color-easy: var(--easy); --color-medium: var(--medium); --color-hard: var(--hard);
+  --color-chart-1: var(--chart-1); --color-chart-2: var(--chart-2); --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4); --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar); --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-accent: var(--sidebar-accent); --color-sidebar-border: var(--sidebar-border);
+  --radius-sm: calc(var(--radius) - 4px); --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius); --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  body {
+    background-color: var(--background); color: var(--foreground); font-family: var(--font-sans);
+    background-image: radial-gradient(80% 50% at 50% -10%, oklch(72% .16 245 / .12), #0000),
+                      linear-gradient(oklch(14% .02 260), oklch(16% .014 260));
+    background-attachment: fixed; -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: oklch(72% .16 245 / .35); }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 2px; }
+  * { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+  select option { background: var(--card); }
+  button { cursor: pointer; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
+}
+
+@utility glow-border { box-shadow: 0 0 0 1px var(--color-border), 0 8px 32px -12px var(--accent-glow); }
+
+/* Long-form lesson HTML coming from the backend */
+@layer components {
+  .prose-dark { @apply text-sm leading-relaxed text-foreground/90; }
+  .prose-dark h1, .prose-dark h2, .prose-dark h3, .prose-dark h4 { @apply mb-2 mt-6 font-semibold tracking-tight text-foreground; }
+  .prose-dark > :first-child, .prose-dark section:first-child h4 { @apply mt-0; }
+  .prose-dark h2 { @apply text-lg; } .prose-dark h3, .prose-dark h4 { @apply text-base; }
+  .prose-dark p { @apply mb-3; }
+  .prose-dark ul { @apply mb-3 list-disc space-y-1 pl-5; } .prose-dark ol { @apply mb-3 list-decimal space-y-1 pl-5; }
+  .prose-dark a { @apply text-primary hover:underline; }
+  .prose-dark code { @apply rounded bg-muted px-1.5 py-0.5 font-mono text-xs; }
+  .prose-dark pre { @apply mb-3 overflow-x-auto rounded-md border border-border bg-background/60 p-3 font-mono text-xs; }
+  .prose-dark pre code { @apply bg-transparent p-0; }
+  .prose-dark table { @apply mb-3 w-full; } .prose-dark th, .prose-dark td { @apply border border-border px-2 py-1 text-left; }
+  .prose-dark strong { @apply font-semibold text-foreground; }
+}
+
+.cm-editor { height: 100%; font-size: 13px; background: transparent !important; }
+.cm-editor .cm-gutters { background: oklch(16% .014 260 / .6) !important; border-right: 1px solid var(--border) !important; }
+.cm-editor .cm-scroller { font-family: var(--font-mono) !important; }
