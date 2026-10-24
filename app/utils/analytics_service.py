@@ -1,19 +1,3 @@
-# import sqlite3
-
-# def get_user_context(user_id):
-
-#     # Example dynamic data from DB
-#     return {
-#         "weak_topics": ["DP", "Graphs"],
-#         "next_topic": "Practice Sliding Window this week.",
-#         "mistakes": "Recent mistakes: recursion base case, hashmap edge case.",
-#         "slowest": "Longest time taken: Graph traversal problem.",
-#         "avg_score": 72,
-#         "consistency": "5 days streak"
-#     }
-
-
-
 """
 analytics_service.py — Real user context pulled from DB for chatbot personalization.
 """
