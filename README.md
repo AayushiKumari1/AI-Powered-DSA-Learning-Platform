@@ -3,7 +3,7 @@
 EduMentor combines DSA lessons, a coding workspace, proctored tests and an AI mentor in one place.
 Learners study a topic, take an AI-generated quiz, solve problems in the browser, and get told what to study next.
 
-**Stack:** React · Vite · TanStack Query · Tailwind CSS · Flask · SQLAlchemy · Socket.IO · Google Gemini · scikit-learn · Judge0 · TensorFlow.js
+**Stack:** React · Vite · TanStack Query · Tailwind CSS · Flask · SQLAlchemy · Socket.IO · Google Gemini · scikit-learn · Judge0 
 
 ![EduMentor dashboard](app/assets/dashboard.png)
 
